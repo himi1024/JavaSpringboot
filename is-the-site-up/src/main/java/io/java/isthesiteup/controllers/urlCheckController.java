@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class urlCheckController {
-
     @GetMapping("/check")
     public String getUrlStatusMessaage(@RequestParam String url) {
         String returnMessage = "";
@@ -38,4 +37,5 @@ public class urlCheckController {
 
         return returnMessage;
     }
+
 }
