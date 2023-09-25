@@ -2,7 +2,27 @@ package io.java.isthesiteup.customer;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
 public class Customer {
+    
+    @Id
+    @SequenceGenerator(
+        name = "customer_sequence",
+        sequenceName = "customer_squence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "customer_sequence"
+    )
     private Long id;
     private String name;
     private int age;
