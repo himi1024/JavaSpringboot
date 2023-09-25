@@ -29,6 +29,11 @@ public class Customer {
     private LocalDate dateOfBirth;
     private String email;
 
+
+    public Customer() {
+        // Empty constructor
+    }
+    
     // Constructor with ID
     public Customer(Long id, String name, int age, LocalDate dateOfBirth, String email) {
         this.id = id;
