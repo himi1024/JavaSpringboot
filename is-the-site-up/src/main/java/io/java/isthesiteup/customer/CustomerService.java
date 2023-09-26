@@ -30,4 +30,13 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
+    public void deleteStudent(Long customerId) {
+        if(customerRepository.existsById(customerId)){
+            customerRepository.deleteById(customerId);
+        }else{
+            throw new IllegalStateException("customer with id " + customerId + " does not exists");
+        }
+
+    }
+
 }
