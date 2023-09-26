@@ -1,6 +1,7 @@
 package io.java.isthesiteup.customer;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,16 @@ public class CustomerService {
     // Return all the customer data
     public List<Customer> getCustomers(){
 			return customerRepository.findAll();
+    }
+
+    public void addNewCustomer(Customer customer) {
+        
+        // Validation Check by Email
+        Optional<Customer> customerOptional = customerRepository.findCustomerByEmail(customer.getEmail());
+        if(customerOptional.isPresent()){
+            throw new IllegalStateException("email had been taken");
+        }
+        customerRepository.save(customer);
     }
 
 }
